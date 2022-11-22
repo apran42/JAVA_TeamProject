@@ -12,12 +12,14 @@ public class Ex2 {
         System.out.print("정수 두개 입력 : ");
         
         
-        try (Scanner input = new Scanner(System.in);) {
+        try (Scanner input = new Scanner(System.in)) {
             x = input.nextInt();
             y = input.nextInt();
             z = x * y;
         } catch (InputMismatchException e) {
             throw e;
+        } finally {
+            input.close();
         }
         System.out.printf("%d * %d = %d %n", x, y, z);
     }
