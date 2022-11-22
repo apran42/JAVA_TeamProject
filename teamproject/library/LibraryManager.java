@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LibraryManager {
+public class LibraryManager extends Program{
 
     ArrayList<Object> list = new ArrayList<>();
 
@@ -36,28 +36,27 @@ public class LibraryManager {
     }
 
     void start(Scanner sc) {
-        String start = sc.nextLine();
-        if(start.equals("")) {
-            System.out.println("# DMU 도서실 좌석 관리 시스템 #");
-            System.out.println("############ 메 뉴 ############");
-            System.out.println("\t0. 종\t료");
-            System.out.println("\t1. 입\t실");
-            System.out.println("\t2. 퇴\t실");
-            System.out.println("\t3. 정기 이용권");
-            System.out.println("\t4. 정기이용 탈퇴");
-            System.out.println("###############################");
-            int num = sc.nextInt();
-            switch (num) {
-                case 0: Program.exit(); break;
-                case 1: Program.check_In(); break;
-                case 2: Program.check_Out(); break;
-                case 3: Program.season_Pass(); break;
-                case 4: Program.season_Pass_Withdraw(); break;
-                default:
-                    System.out.println("잘못된 번호를 입력하였습니다.");
-                    System.out.println("다시 올바른 번호를 입력해주세요.");
-                    start(sc); break;
-            }
+        
+        System.out.println("# DMU 도서실 좌석 관리 시스템 #");
+        System.out.println("############ 메 뉴 ############");
+        System.out.println("\t0. 종\t료");
+        System.out.println("\t1. 입\t실");
+        System.out.println("\t2. 퇴\t실");
+        System.out.println("\t3. 정기 이용권");
+        System.out.println("\t4. 정기이용 탈퇴");
+        System.out.println("###############################");
+        int num = sc.nextInt();
+        switch (num) {
+            case 0: exit(); break;
+            case 1: check_In(); break;
+            case 2: check_Out(); break;
+            case 3: season_Pass(); break;
+            case 4: season_Pass_Withdraw(); break;
+            default:
+                System.out.println("잘못된 번호를 입력하였습니다.");
+                System.out.println("다시 올바른 번호를 입력해주세요.");
+                start(sc); break;
+            
         }
     }
 }
