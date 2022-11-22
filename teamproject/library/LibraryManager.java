@@ -47,11 +47,11 @@ public class LibraryManager extends Program{
         System.out.println("###############################");
         int num = sc.nextInt();
         switch (num) {
-            case 0: exit(); break;
-            case 1: check_In(); break;
-            case 2: check_Out(); break;
-            case 3: season_Pass(); break;
-            case 4: season_Pass_Withdraw(); break;
+            case 0: Exit(); break;
+            case 1: Check_In(); break;
+            case 2: Check_Out(); break;
+            case 3: Season_Pass(); break;
+            case 4: Season_Pass_Withdraw(); break;
             default:
                 System.out.println("잘못된 번호를 입력하였습니다.");
                 System.out.println("다시 올바른 번호를 입력해주세요.");

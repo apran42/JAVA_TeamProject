@@ -1,18 +1,9 @@
 package teamproject.library;
 
-public class CheckSeat extends SeosonPassSale {
+public class CheckSeat{
 
-    public Object isStudent(int no) {
-        return Member_List.get(no*5+1);
-    }
-
-    public boolean Stu_Check(int no) {
-        Object a = isStudent(no);
-        if(a.equals("학생")) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    public String isStudent(int no) {
+        SeasonPassSale sps = new SeasonPassSale();
+        return (String)sps.getElement((no - 1)*5 + 1);
     }
 }

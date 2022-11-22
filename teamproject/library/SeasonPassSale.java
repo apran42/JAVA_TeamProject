@@ -3,13 +3,18 @@ package teamproject.library;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SeosonPassSale {
+public class SeasonPassSale {
     private boolean student;
     private int no = 0;
     private String name;
     private String tele;
 
     List<Object> Member_List = new LinkedList<>();
+
+    public Object getElement(int no) {
+        return Member_List.get(no);
+    }
+
 
     public void register() {
         
