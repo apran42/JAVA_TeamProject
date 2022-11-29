@@ -1,18 +1,18 @@
 4
 4
-true true 1
-true true 2
-true true 3
-true true 4
-true false 5
-true false 6
-true false 7
-true false 8
-false true 9
-false true 10
-false true 11
-false true 12
-false false 13
-false false 14
-false false 15
-false false 16
+true	true	1
+true	true	2
+true	true	3
+true	true	4
+true	false	5
+true	false	6
+true	false	7
+true	false	8
+false	true	9
+false	true	10
+false	true	11
+false	true	12
+false	false	13
+false	false	14
+false	false	15
+false	false	16
