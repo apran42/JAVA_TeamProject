@@ -1,14 +1,15 @@
 package teamproject.library;
 
 import java.util.Scanner;
+import  static teamproject.library.CheckIn.seated;
 
-public class Program{
+public class Program {
     // 0. 종료
-    public void Exit() {
+    public static void Exit() {
         System.exit(0);
     }
     // 1. 입실
-    public void Check_In() {
+    public static void Check_In() {
         Scanner sc = new Scanner(System.in);
         System.out.println();
         System.out.print("--> 정기 이용 회원인가요? (Y/N) ");
@@ -16,74 +17,73 @@ public class Program{
         
         // 1-1. 정기회원인 경우 
         if(is_mem.equals("y") || is_mem.equals("Y")) {
+            CheckIn jungi = new CheckIn();
             System.out.println();
-            System.out.println("--> 회원번호를 입력하세요");
-            int no = sc.nextInt();
-            CheckSeat member = new CheckSeat();
-            String mem = member.isStudent(no);
-
-            if(mem.equals("학생")) {
-                System.out.println("여기서부터");
-            }
-            
-            else {
-                System.out.println("만들면 됨");
-            }
+            jungi.Show_Mem();
         }
 
         // 1-2. 정기회원이 아닌 경우 
         if (is_mem.equals("n") || is_mem.equals("N")) {
+            CheckIn bijungi = new CheckIn();
             System.out.println();
-
-            System.out.print("--> 학생인가요? (Y/N) ");
-            String student = sc.nextLine();
-            System.out.println();
-
-            System.out.print("--> 이름 입력 : ");
-            String name = sc.nextLine();
-            System.out.println();
-
-            System.out.print("--> 전화번호 입력: ");
-            String tel = sc.nextLine();
-            System.out.println();
-
+            bijungi.Show_Non_Mem();
         }
 
     }
 
     // 2. 퇴실
-    public void Check_Out() {
-        
+    public static void Check_Out() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println();
+        System.out.print("--> 좌석번호 입력 : ");
+        int seat = sc.nextInt();
+
+        if(!seated[seat-1]) {
+            System.out.println("착석 중인 좌석이 아닙니다.\n다시 선택해주세요.");
+            Check_Out();
+        } else {
+            CheckOut.Out(seat);
+            LibraryManager.start(sc);
+        }
     }
 
     // 3. 정기 이용권
-    public void Season_Pass() {
-        SeasonPassSale member = new SeasonPassSale();
+    public static void Season_Pass() {
         Scanner sc = new Scanner(System.in);
         System.out.println();
 
         System.out.print("--> 학생인가요? (Y/N) ");
         String stu = sc.nextLine();
-        member.isStudent(stu);
+        SeasonPass.isStudent(stu);
         System.out.println();
 
         System.out.print("--> 이름 입력 : ");
         String name = sc.nextLine();
-        member.setName(name);
+        SeasonPass.setName(name);
         System.out.println();
 
         System.out.print("--> 전화번호 입력 :  ");
         String tele = sc.nextLine();
-        member.setTele(tele);
+        SeasonPass.setTele(tele);
         System.out.println();
-        
-        member.register();
-        sc.close();
+
+        SeasonPass.Insert();
+
+        System.out.println(name + "님 정기회원으로 등록되었습니다.");
+        System.out.println("이용금액 만원이 자동 충전되었습니다.");
+        System.out.println("회원번호는 " + SeasonPass.getNo() + "입니다.");
+
+        LibraryManager.start(sc);
     }
 
     //4.정기이용 탈퇴
-    public void Season_Pass_Withdraw() {
-        System.out.println(4);
+    public static void Season_Pass_Withdraw() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("회원번호를 입력하세요 : ");
+        int no = sc.nextInt();
+        SeasonPass.withdraw(no);
+
+        LibraryManager.start(sc);
     }
 
 }
