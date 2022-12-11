@@ -10,69 +10,61 @@ class SeasonPass {
     private  static final int point = 10000;
     static LinkedList<Object> Member_List = new LinkedList<>();
 
-    public static void Insert() {
+    static void Insert() {
         plusNo();
-        getMember_List().add(getNo());
+        Member_List.add(getNo());
         if (isStudent()) {
-            getMember_List().add("학생");
+            Member_List.add("학생");
         } else {
-            getMember_List().add("일반");
+            Member_List.add("일반");
         }
-        getMember_List().add(getName());
-        getMember_List().add(getTele());
-        getMember_List().addLast(point);
+        Member_List.add(getName());
+        Member_List.add(getTele());
+        Member_List.addLast(point);
     }
 
-    public static int getNo() {
+    static int getNo() {
         return no;
     }
 
-    public static void plusNo() {
+    static void plusNo() {
         no++;
     }
-    public static void isStudent(String stu) {
+    static void isStudent(String stu) {
         switch (stu) {
             case "Y", "y" -> setStudent(true);
             case "N", "n" -> setStudent(false);
         }
     }
 
-    public static void setName(String name) {
+    static void setName(String name) {
         SeasonPass.name = name;
     }
 
-    public static void setTele(String tele) {
+    static void setTele(String tele) {
         SeasonPass.tele = tele;
     }
 
-    public static boolean isStudent() {
+    static boolean isStudent() {
         return student;
     }
 
-    public static void setStudent(boolean student) {
+    static void setStudent(boolean student) {
         SeasonPass.student = student;
     }
 
-    public static String getName() {
+    static String getName() {
         return name;
     }
 
-    public static String getTele() {
+    static String getTele() {
         return tele;
     }
 
-    public static void withdraw(int no) {
-        System.out.println(getMember_List().get(no*5-3)+"님 정기회원 탈퇴 완료");
+    static void withdraw(int no) {
+        System.out.println(Member_List.get(no*5-3)+"님 정기회원 탈퇴 완료");
         for (int i = 5; i > 0; i--) {
-            getMember_List().set(no*5-i, "");
+            Member_List.set(no*5-i, "");
         }
-    }
-
-    public static LinkedList<Object> getMember_List() {
-        return Member_List;
-    }
-
-    public static void setMember_List(LinkedList<Object> member_List) {
-        Member_List = member_List;
     }
 }
