@@ -31,11 +31,9 @@ public class LibraryManager extends Program{
         for(int i = 1; i <= 16; i++) {
             for(int j = 0; j < 3; j++) {
                 table[i-1][j] = text.get(3*i+(j-1));
-
             }
         }
     }
-
     static void start(Scanner a) {
 
         System.out.println("# DMU 도서실 좌석 관리 시스템 #");
