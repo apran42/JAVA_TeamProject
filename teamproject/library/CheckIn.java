@@ -1,6 +1,6 @@
 package teamproject.library;
 
-import java.util.HashMap;
+import  java.util.HashMap;
 import java.util.Scanner;
 
 import static teamproject.library.SeasonPass.Member_List;
@@ -41,15 +41,10 @@ public class CheckIn {
                     // false(미착석)일 경우
                     if(!seated[i-1]) System.out.printf("|%2c ", hex+i);
                     else {
-                        if(i<=10) {
-                            System.out.printf("|%2c ", already1+i);
-                        } else {
-                            System.out.printf("|%2c ", already2+i-10);
-                        }
+                        if(i<=10) System.out.printf("|%2c ", already1+i);
+                        else System.out.printf("|%2c ", already2+i-10);
                     }
-                    if(i%4==0) {
-                        System.out.println("|");
-                    }
+                    if(i%4==0) System.out.println("|");
                 }
 
                 System.out.println("-------------------");
@@ -78,24 +73,17 @@ public class CheckIn {
             } else {
                 for (int j=1; j<=16; j++) {
                     // false(미착석)이면서 table 각 행의 1번 열이 false 일 경우
-                    if(!seated[j-1] && table[j-1][0].equals("false")) {
+                    if(!seated[j-1] && table[j-1][0].equals("false"))
                         System.out.printf("|%2c ", hex+j);
-                    }
                     // 이미 착석이면~
                     else if (seated[j-1] && table[j-1][0].equals("false")) {
-                        if(j<=10) {
-                            System.out.printf("|%2c ", already1+j);
-                        } else {
-                            System.out.printf("|%2c ", already2+j-10);
-                        }
+                        if(j<=10) System.out.printf("|%2c ", already1+j);
+                        else System.out.printf("|%2c ", already2+j-10);
                     }
                     // 선택 불가
-                    else {
-                        System.out.printf("|%2c ", 0x2592);
-                    }
-                    if(j%4==0) {
-                        System.out.println("|");
-                    }
+                    else System.out.printf("|%2c ", 0x2592);
+
+                    if(j%4==0)System.out.println("|");
                 }
 
                 System.out.println("-------------------");
@@ -141,7 +129,7 @@ public class CheckIn {
         System.out.println();
 
         System.out.print("--> 전화번호 입력 : ");
-        String tele = sc.nextLine(); // 전화번호를 묻는 이유
+        String tele = sc.nextLine();
         System.out.println();
 
         int hex = 0x245f;
@@ -154,20 +142,12 @@ public class CheckIn {
 
         if(stu.equals("Y")||stu.equals("y")) {
             for (int i = 1; i <= 16; i++) {
-                if(!seated[i-1] && table[i-1][1].equals("false")) {
-                    System.out.printf("|%2c ", hex+i);
-                } else if(seated[i-1] && table[i-1][1].equals("false")) {
-                    if(i<=10) {
-                        System.out.printf("|%2c ", already1+i);
-                    } else {
-                        System.out.printf("|%2c ", already2+i-10);
-                    }
-                } else {
-                    System.out.printf("|%2c ", 0x2592);
-                }
-                if(i%4==0) {
-                    System.out.println("|");
-                }
+                if(!seated[i-1] && table[i-1][1].equals("false")) System.out.printf("|%2c ", hex+i);
+                 else if(seated[i-1] && table[i-1][1].equals("false")) {
+                    if(i<=10) System.out.printf("|%2c ", already1+i);
+                    else System.out.printf("|%2c ", already2+i-10);
+                } else System.out.printf("|%2c ", 0x2592);
+                if(i%4==0) System.out.println("|");
             }
 
             System.out.println("-------------------");
@@ -199,17 +179,10 @@ public class CheckIn {
                 if(!seated[i-1] && table[i-1][0].equals("false") && table[i-1][1].equals("false")) {
                     System.out.printf("|%2c ", hex+i);
                 } else if(seated[i-1] && table[i-1][0].equals("false") && table[i-1][1].equals("false")) {
-                    if(i<=10) {
-                        System.out.printf("|%2c ", already1+i);
-                    } else {
-                        System.out.printf("|%2c ", already2+i-10);
-                    }
-                } else {
-                    System.out.printf("|%2c ", 0x2592);
-                }
-                if(i%4==0) {
-                    System.out.println("|");
-                }
+                    if(i<=10) System.out.printf("|%2c ", already1+i);
+                    else System.out.printf("|%2c ", already2+i-10);
+                } else System.out.printf("|%2c ", 0x2592);
+                if(i%4==0) System.out.println("|");
             }
             System.out.println("-------------------");
             System.out.println();
